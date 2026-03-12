@@ -1,6 +1,7 @@
 import ContactForm from "../components/ContactForm";
 import Reveal from "../components/Reveal";
 import StatCounter from "../components/StatCounter";
+import ThemeToggle from "../components/ThemeToggle";
 import Wordmark from "../components/Wordmark";
 
 const services = [
@@ -117,16 +118,23 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="theme-dock-wrap">
+        <div className="theme-dock">
+          <span className="theme-dock-label">Theme</span>
+          <ThemeToggle />
+        </div>
+      </div>
+
       <section className="relative isolate overflow-hidden">
         <div className="hero-orb hero-orb-a" />
         <div className="hero-orb hero-orb-b" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(125,211,252,0.08),transparent_30%)]" />
 
-        <div className="relative mx-auto max-w-7xl px-6 pb-14 pt-4 sm:px-8 lg:px-10">
-          <Reveal as="nav" className="flex items-center px-1 py-5">
+        <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-4 sm:px-8 lg:px-10">
+          <Reveal as="nav" className="flex flex-col gap-4 px-1 py-5 sm:flex-row sm:items-center">
             <Wordmark />
 
-            <div className="ml-auto flex items-center gap-4 lg:gap-6">
+            <div className="flex w-full flex-wrap items-center gap-3 sm:ml-auto sm:w-auto sm:justify-end lg:gap-5">
               <div className="hidden items-center gap-5 text-sm text-slate-300 lg:flex">
                 <a href="#services" className="nav-link">Services</a>
                 <a href="#difference" className="nav-link">Why us</a>
@@ -228,10 +236,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
-        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <section id="services" className="mx-auto max-w-7xl px-6 py-18 sm:px-8 lg:px-10">
+        <Reveal className="section-heading flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.28em] text-sky-100/80">What we build</p>
+            <p className="section-eyebrow flash-highlight text-sm uppercase tracking-[0.28em] text-sky-100/80">What we build</p>
             <h2 className="display-font mt-3 text-4xl font-semibold text-white sm:text-5xl">
               Software systems designed for speed, clarity, and go-live readiness.
             </h2>
@@ -257,9 +265,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="difference" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
-        <Reveal className="text-center">
-          <p className="text-sm uppercase tracking-[0.28em] text-sky-100/80">The new physics of delivery</p>
+      <section id="difference" className="mx-auto max-w-7xl px-6 py-18 sm:px-8 lg:px-10">
+        <Reveal className="section-heading text-center">
+          <p className="section-eyebrow flash-highlight text-sm uppercase tracking-[0.28em] text-sky-100/80">The new physics of delivery</p>
           <h2 className="display-font mt-3 text-4xl font-semibold text-white sm:text-5xl">
             The same software cycle, compressed into a much faster system.
           </h2>
@@ -334,9 +342,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="process" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
-        <Reveal className="text-center">
-          <p className="text-sm uppercase tracking-[0.28em] text-sky-100/80">10x speed to production</p>
+      <section id="process" className="mx-auto max-w-7xl px-6 py-18 sm:px-8 lg:px-10">
+        <Reveal className="section-heading text-center">
+          <p className="section-eyebrow flash-highlight text-sm uppercase tracking-[0.28em] text-sky-100/80">10x speed to production</p>
           <h2 className="display-font mt-3 text-4xl font-semibold text-white sm:text-5xl">
             A delivery system built for momentum, not waiting.
           </h2>
@@ -358,7 +366,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="technology" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
+      <section id="technology" className="mx-auto max-w-7xl px-6 py-18 sm:px-8 lg:px-10">
         <Reveal className="glass rounded-[2rem] p-8 sm:p-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
@@ -387,10 +395,10 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl px-6 pb-16 pt-6 sm:px-8 lg:px-10">
+      <section id="contact" className="mx-auto max-w-7xl px-6 py-18 sm:px-8 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <Reveal>
-            <p className="text-sm uppercase tracking-[0.28em] text-sky-100/80">Start your build</p>
+          <Reveal className="section-heading">
+            <p className="section-eyebrow flash-highlight text-sm uppercase tracking-[0.28em] text-sky-100/80">Start your build</p>
             <h2 className="display-font mt-3 text-4xl font-semibold text-white sm:text-5xl">
               Want to see how fast this could work for your business?
             </h2>
@@ -422,3 +430,7 @@ export default function Home() {
     </main>
   );
 }
+
+
+
+

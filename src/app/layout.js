@@ -1,4 +1,17 @@
 import "./globals.css";
+import { ThemeProvider } from "../components/ThemeProvider";
+
+const themeInitializer = `
+  (() => {
+    try {
+      const savedTheme = window.localStorage.getItem("axxion-theme");
+      const nextTheme = savedTheme === "light" ? "light" : "dark";
+      document.documentElement.dataset.theme = nextTheme;
+    } catch {
+      document.documentElement.dataset.theme = "dark";
+    }
+  })();
+`;
 
 export const metadata = {
   title: "AXXION | AI + Human Software Studio",
@@ -8,8 +21,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializer }} />
+      </head>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
