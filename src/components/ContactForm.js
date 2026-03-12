@@ -60,7 +60,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={submitForm} className="space-y-5">
+    <form onSubmit={submitForm} className="space-y-4">
       <div>
         <label className="mb-2 block text-sm font-medium text-slate-200" htmlFor="fullName">
           Full name
@@ -151,7 +151,7 @@ export default function ContactForm() {
         <textarea
           id="projectDetails"
           name="projectDetails"
-          rows="6"
+          rows="5"
           className="w-full rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/40"
           value={form.projectDetails}
           onChange={handleChange}

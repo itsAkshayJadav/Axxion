@@ -122,7 +122,7 @@ export default function Home() {
         <div className="hero-orb hero-orb-b" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(125,211,252,0.08),transparent_30%)]" />
 
-        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-6 sm:px-8 lg:px-10">
+        <div className="relative mx-auto max-w-7xl px-6 pb-14 pt-4 sm:px-8 lg:px-10">
           <Reveal as="nav" className="flex items-center px-1 py-5">
             <Wordmark />
 
@@ -143,9 +143,9 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <div className="grid gap-14 py-20 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+          <div className="grid gap-10 py-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <Reveal delay={120}>
-              <div className="mb-8 inline-flex rounded-full border border-sky-300/20 bg-sky-300/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.28em] text-sky-100">
+              <div className="mb-5 inline-flex rounded-full border border-sky-300/20 bg-sky-300/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.28em] text-sky-100">
                 Software delivery at light speed
               </div>
 
@@ -153,11 +153,11 @@ export default function Home() {
                 We build websites, web apps, and mobile products with <span className="flash-highlight">AI speed and human precision.</span>
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
                 AXXION helps startups and SMEs ship real software faster by combining AI-native execution with experienced engineering. Strategy no longer waits for delivery. It becomes delivery.
               </p>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#contact"
                   className="rounded-full bg-[linear-gradient(135deg,#7dd3fc,#38bdf8)] px-7 py-3 text-center text-sm font-semibold text-slate-950 transition hover:opacity-90"
@@ -228,7 +228,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
+      <section id="services" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
         <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.28em] text-sky-100/80">What we build</p>
@@ -241,7 +241,7 @@ export default function Home() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {services.map((service, index) => (
             <Reveal
               as="article"
@@ -257,7 +257,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="difference" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
+      <section id="difference" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
         <Reveal className="text-center">
           <p className="text-sm uppercase tracking-[0.28em] text-sky-100/80">The new physics of delivery</p>
           <h2 className="display-font mt-3 text-4xl font-semibold text-white sm:text-5xl">
@@ -268,7 +268,7 @@ export default function Home() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
           {deliveryComparison.map((lane, index) => (
             <Reveal
               as="article"
@@ -334,7 +334,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="process" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
+      <section id="process" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
         <Reveal className="text-center">
           <p className="text-sm uppercase tracking-[0.28em] text-sky-100/80">10x speed to production</p>
           <h2 className="display-font mt-3 text-4xl font-semibold text-white sm:text-5xl">
@@ -342,7 +342,7 @@ export default function Home() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-4">
+        <div className="mt-8 grid gap-5 lg:grid-cols-4">
           {process.map((item, index) => (
             <Reveal
               as="article"
@@ -358,7 +358,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="technology" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
+      <section id="technology" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
         <Reveal className="glass rounded-[2rem] p-8 sm:p-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
@@ -372,7 +372,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-7 flex flex-wrap gap-3">
             {stack.map((item, index) => (
               <Reveal
                 as="span"
@@ -387,7 +387,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:px-8 lg:px-10">
+      <section id="contact" className="mx-auto max-w-7xl px-6 pb-16 pt-6 sm:px-8 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <p className="text-sm uppercase tracking-[0.28em] text-sky-100/80">Start your build</p>
@@ -405,7 +405,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-white/10 px-6 py-10 sm:px-8 lg:px-10">
+      <footer className="border-t border-white/10 px-6 py-7 sm:px-8 lg:px-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row md:items-end">
           <div className="space-y-3 text-center md:text-left">
             <Wordmark />
