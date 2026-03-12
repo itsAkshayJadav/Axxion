@@ -1,0 +1,37 @@
+<svg width="720" height="180" viewBox="0 0 720 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>AXXION Wordmark Dark</title>
+  <defs>
+    <linearGradient id="dark-x-gradient" x1="173" y1="38" x2="274" y2="143" gradientUnits="userSpaceOnUse">
+      <stop offset="0.05" stop-color="#F8FBFF"/>
+      <stop offset="0.55" stop-color="#7DD3FC"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="dark-line-gradient" x1="56" y1="0" x2="584" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DD3FC" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0.18"/>
+    </linearGradient>
+    <filter id="dark-glow" x="-12%" y="-40%" width="124%" height="200%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.49 0 0 0 0 0.83 0 0 0 0 0.99 0 0 0 0.32 0" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#dark-glow)">
+    <text x="52" y="112" fill="#F8FBFF" font-family="Arial Nova, Aptos Display, Segoe UI, Arial, sans-serif" font-size="80" font-weight="700" letter-spacing="12">A</text>
+
+    <g transform="translate(156 34)">
+      <path d="M0 0L40 54L0 108" stroke="url(#dark-x-gradient)" stroke-width="12" stroke-linecap="round"/>
+      <path d="M40 0L0 54L40 108" stroke="url(#dark-x-gradient)" stroke-width="12" stroke-linecap="round"/>
+      <path d="M42 0L82 54L42 108" stroke="url(#dark-x-gradient)" stroke-width="12" stroke-linecap="round" opacity="0.98"/>
+      <path d="M82 0L42 54L82 108" stroke="url(#dark-x-gradient)" stroke-width="12" stroke-linecap="round" opacity="0.98"/>
+    </g>
+
+    <text x="286" y="112" fill="#F8FBFF" font-family="Arial Nova, Aptos Display, Segoe UI, Arial, sans-serif" font-size="80" font-weight="700" letter-spacing="12">ION</text>
+
+    <rect x="54" y="128" width="530" height="2" rx="1" fill="url(#dark-line-gradient)"/>
+  </g>
+</svg>

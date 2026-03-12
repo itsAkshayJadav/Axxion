@@ -21,9 +21,9 @@ const services = [
       "Cross-platform mobile apps with sharp UX, clean engineering, and production readiness.",
   },
   {
-    title: "AI systems",
+    title: "AI integrations",
     description:
-      "Practical AI workflows and product features layered into real operations, not hype decks.",
+      "Practical AI integrations that connect automation, copilots, and intelligent workflows to the tools your team already uses.",
   },
 ];
 
@@ -55,7 +55,7 @@ const deliveryComparison = [
     steps: [
       "Rapid discovery supported by AI research and product framing",
       "Design, architecture, and implementation move together",
-      "Engineers use AI systems to compress repetitive execution",
+      "Engineers use AI integrations and automation to compress repetitive execution",
       "Testing and launch prep happen continuously, not last-minute",
     ],
   },
@@ -113,7 +113,7 @@ export default function Home() {
         <div className="announcement-track">
           <span>AI-native software delivery for startups and SMEs</span>
           <span>Production-grade software shipped faster</span>
-          <span>Websites, web apps, mobile products, and AI systems</span>
+          <span>Websites, web apps, mobile products, and AI integrations</span>
           <span>Book a strategy call to map your build sprint</span>
         </div>
       </div>
@@ -176,7 +176,7 @@ export default function Home() {
                   href="#difference"
                   className="rounded-full border border-white/12 px-7 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/8"
                 >
-                  See the delivery model
+                  See cost and launch speed
                 </a>
               </div>
             </Reveal>
@@ -245,7 +245,7 @@ export default function Home() {
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-7 text-slate-300">
-            We focus on the products that matter most for modern growth: websites, platforms, apps, and AI-enabled systems that improve how a business shows up and operates.
+            We focus on the products that matter most for modern growth: websites, platforms, apps, and AI integrations that improve how a business shows up and operates.
           </p>
         </Reveal>
 
@@ -257,8 +257,7 @@ export default function Home() {
               delay={index * 90}
               className="glass hover-lift rounded-[1.75rem] p-6"
             >
-              <p className="text-sm uppercase tracking-[0.24em] text-sky-100/75">AXXION service</p>
-              <h3 className="mt-4 text-2xl font-semibold text-white">{service.title}</h3>
+              <h3 className="text-2xl font-semibold text-white">{service.title}</h3>
               <p className="mt-4 text-sm leading-7 text-slate-300">{service.description}</p>
             </Reveal>
           ))}
@@ -269,10 +268,10 @@ export default function Home() {
         <Reveal className="section-heading text-center">
           <p className="section-eyebrow flash-highlight text-sm uppercase tracking-[0.28em] text-sky-100/80">The new physics of delivery</p>
           <h2 className="display-font mt-3 text-4xl font-semibold text-white sm:text-5xl">
-            The same software cycle, compressed into a much faster system.
+            See how AI-assisted delivery changes cost and launch speed.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-300">
-            Traditional development stacks handoffs on top of handoffs. AXXION runs a tighter loop where research, design, implementation, QA, and deployment move in parallel wherever possible.
+            Compare traditional delivery against AI-assisted execution across cost efficiency, timeline compression, and launch readiness. AXXION keeps research, design, implementation, QA, and deployment moving in parallel wherever possible.
           </p>
         </Reveal>
 
@@ -370,7 +369,7 @@ export default function Home() {
         <Reveal className="glass rounded-[2rem] p-8 sm:p-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-sky-100/80">Modern stack</p>
+              <p className="section-eyebrow flash-highlight text-sm uppercase tracking-[0.28em] text-sky-100/80">Modern stack</p>
               <h2 className="display-font mt-3 text-4xl font-semibold text-white">
                 Current technologies, clean implementation, and no dead weight.
               </h2>
@@ -386,7 +385,7 @@ export default function Home() {
                 as="span"
                 key={item}
                 delay={index * 70}
-                className="tech-pill rounded-full border border-sky-300/15 bg-sky-300/8 px-4 py-2 text-sm text-slate-100"
+                className="tech-pill rounded-full border border-sky-300/15 bg-sky-300/8 px-4 py-2 text-sm text-white"
               >
                 {item}
               </Reveal>
@@ -430,6 +429,12 @@ export default function Home() {
     </main>
   );
 }
+
+
+
+
+
+
 
 
 

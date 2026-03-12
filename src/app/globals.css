@@ -975,3 +975,16 @@ body {
 [data-theme="light"] .section-eyebrow.flash-highlight::before {
   display: none;
 }
+
+[data-theme="light"] .tech-pill {
+  color: #1f3448 !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(239, 246, 251, 0.88)) !important;
+  border-color: rgba(95, 131, 162, 0.22) !important;
+  box-shadow:
+    0 10px 22px rgba(31, 43, 60, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58);
+}
+
+[data-theme="light"] .tech-pill::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+}
