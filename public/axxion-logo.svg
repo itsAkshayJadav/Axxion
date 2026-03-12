@@ -1,0 +1,42 @@
+<svg width="640" height="160" viewBox="0 0 640 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="70" y1="34" x2="548" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FBFF"/>
+      <stop offset="0.55" stop-color="#7DD3FC"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <filter id="logoGlow" x="-10%" y="-35%" width="120%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.49 0 0 0 0 0.83 0 0 0 0 0.99 0 0 0 0.4 0" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#logoGlow)">
+    <text x="52" y="108"
+      fill="url(#logoGradient)"
+      font-family="Space Grotesk, Geist, Arial, sans-serif"
+      font-size="78"
+      font-weight="700"
+      letter-spacing="10">A</text>
+
+    <g transform="translate(152 41)">
+      <path d="M0 0L40 55L0 110" stroke="url(#logoGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M40 0L0 55L40 110" stroke="url(#logoGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M34 0L74 55L34 110" stroke="url(#logoGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+      <path d="M74 0L34 55L74 110" stroke="url(#logoGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.96"/>
+    </g>
+
+    <text x="262" y="108"
+      fill="url(#logoGradient)"
+      font-family="Space Grotesk, Geist, Arial, sans-serif"
+      font-size="78"
+      font-weight="700"
+      letter-spacing="10">ION</text>
+
+    <rect x="52" y="124" width="515" height="2" rx="1" fill="url(#logoGradient)" opacity="0.9"/>
+  </g>
+</svg>
