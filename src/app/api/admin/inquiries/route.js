@@ -1,7 +1,7 @@
-import { connectDB } from "@/lib/mongodb";
-import Lead from "@/models/Lead";
+import { getInquiries } from "@/lib/inquiryStore";
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 function isAuthorized(req) {
   const configuredKey = process.env.ADMIN_PANEL_KEY;
@@ -26,25 +26,12 @@ export async function GET(req) {
       );
     }
 
-    await connectDB();
-
-    const inquiries = await Lead.find({})
-      .sort({ createdAt: -1 })
-      .lean();
+    const inquiries = await getInquiries();
 
     return Response.json(
       {
         success: true,
-        inquiries: inquiries.map((inquiry) => ({
-          id: inquiry._id.toString(),
-          fullName: inquiry.fullName,
-          companyName: inquiry.companyName,
-          email: inquiry.email,
-          countryCode: inquiry.countryCode,
-          contactNumber: inquiry.contactNumber,
-          projectDetails: inquiry.projectDetails,
-          createdAt: inquiry.createdAt,
-        })),
+        inquiries,
       },
       { status: 200 }
     );
@@ -58,3 +45,4 @@ export async function GET(req) {
     );
   }
 }
+

@@ -192,7 +192,8 @@ export default function AdminInquiriesPanel() {
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <p className="text-base font-semibold text-white">{inquiry.name}</p>
+                          <p className="text-base font-semibold text-white">{inquiry.fullName}</p>
+                          <p className="mt-1 text-sm text-slate-300">{inquiry.companyName}</p>
                           <p className="mt-1 text-sm text-cyan-100/80">{inquiry.email}</p>
                         </div>
                         <p className="shrink-0 text-xs uppercase tracking-[0.2em] text-slate-400">
@@ -200,7 +201,7 @@ export default function AdminInquiriesPanel() {
                         </p>
                       </div>
                       <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-300">
-                        {inquiry.project}
+                        {inquiry.projectDetails}
                       </p>
                     </button>
                   );
@@ -226,11 +227,24 @@ export default function AdminInquiriesPanel() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                       <p className="text-xs uppercase tracking-[0.24em] text-slate-400">Name</p>
-                      <p className="mt-2 text-base font-medium text-white">{selectedInquiry.name}</p>
+                      <p className="mt-2 text-base font-medium text-white">{selectedInquiry.fullName}</p>
                     </div>
                     <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                       <p className="text-xs uppercase tracking-[0.24em] text-slate-400">Submitted</p>
                       <p className="mt-2 text-base font-medium text-white">{formatDate(selectedInquiry.createdAt)}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                      <p className="text-xs uppercase tracking-[0.24em] text-slate-400">Company</p>
+                      <p className="mt-2 text-base font-medium text-white">{selectedInquiry.companyName}</p>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                      <p className="text-xs uppercase tracking-[0.24em] text-slate-400">Contact number</p>
+                      <p className="mt-2 text-base font-medium text-white">
+                        {selectedInquiry.countryCode} {selectedInquiry.contactNumber}
+                      </p>
                     </div>
                   </div>
 
@@ -244,7 +258,7 @@ export default function AdminInquiriesPanel() {
                   <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                     <p className="text-xs uppercase tracking-[0.24em] text-slate-400">Project brief</p>
                     <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-slate-200">
-                      {selectedInquiry.project}
+                      {selectedInquiry.projectDetails}
                     </p>
                   </div>
                 </div>
@@ -260,3 +274,4 @@ export default function AdminInquiriesPanel() {
     </div>
   );
 }
+

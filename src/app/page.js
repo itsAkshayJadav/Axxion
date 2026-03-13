@@ -120,7 +120,6 @@ export default function Home() {
 
       <div className="theme-dock-wrap">
         <div className="theme-dock">
-          <span className="theme-dock-label">Theme</span>
           <ThemeToggle />
         </div>
       </div>
