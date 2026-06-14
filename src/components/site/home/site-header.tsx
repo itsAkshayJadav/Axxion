@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
-import { COMPANY_NAME, navLinks } from "@/content/home";
+import { COMPANY_NAME, STRATEGY_CALL_MAILTO_HREF, navLinks } from "@/content/home";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/site/logo";
 import { buttonVariants } from "@/components/ui/button";
@@ -32,7 +32,7 @@ export function SiteHeader() {
 
             <div className="hidden items-center gap-3 lg:flex">
               <ThemeToggle />
-              <a className={buttonVariants({ variant: "primary", size: "default" })} href="#contact">
+              <a className={buttonVariants({ variant: "primary", size: "default" })} href={STRATEGY_CALL_MAILTO_HREF}>
                 Book a strategy call
               </a>
             </div>
@@ -76,7 +76,7 @@ export function SiteHeader() {
                     </div>
                     <a
                       className={cn(buttonVariants({ variant: "primary", size: "default" }), "mt-2 w-full")}
-                      href="#contact"
+                      href={STRATEGY_CALL_MAILTO_HREF}
                       onClick={() => setOpen(false)}
                     >
                       Book a strategy call

@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { LoaderCircle } from "lucide-react";
+import { COMPANY_EMAIL } from "@/content/home";
 import { Button } from "@/components/ui/button";
 
 const initialForm = {
@@ -16,6 +17,25 @@ const initialForm = {
 const countryOptions = ["+1", "+44", "+61", "+65", "+91", "+971"];
 
 type InquiryForm = typeof initialForm;
+
+function createInquiryMailtoHref(form: InquiryForm) {
+  const subject = `Website inquiry from ${form.fullName || "Axxion website"}`;
+  const body = [
+    "Hi Axxion,",
+    "",
+    "A customer submitted this inquiry from the website:",
+    "",
+    `Full name: ${form.fullName}`,
+    `Company: ${form.companyName}`,
+    `Email: ${form.email}`,
+    `Contact number: ${form.countryCode} ${form.contactNumber}`,
+    "",
+    "Project/request details:",
+    form.projectDetails,
+  ].join("\n");
+
+  return `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 export function ContactForm() {
   const [form, setForm] = useState<InquiryForm>(initialForm);
@@ -44,12 +64,19 @@ export function ContactForm() {
       const data = await response.json();
 
       if (!response.ok || !data.success) {
+        if (data.code === "EMAIL_NOT_CONFIGURED") {
+          window.location.href = createInquiryMailtoHref(form);
+          setStatus("success");
+          setMessage("Your email app has opened with the completed inquiry. Please press send there to deliver it.");
+          return;
+        }
+
         throw new Error(data.error || "Unable to submit your project right now.");
       }
 
       setForm(initialForm);
       setStatus("success");
-      setMessage("Project brief received. We will follow up with the fastest realistic path to launch.");
+      setMessage("Project brief sent. We will follow up with the fastest realistic path to launch.");
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
