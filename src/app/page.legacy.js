@@ -30,7 +30,7 @@ const services = [
 const outcomes = [
   "AI speed with human review and accountability",
   "Production-grade engineering without agency drag",
-  "Lean commercial model for startups and SMEs",
+  "Lean commercial model for startups and MSMEs",
   "Discovery, design, build, QA, and launch in one system",
 ];
 
@@ -111,7 +111,7 @@ export default function Home() {
     <main className="overflow-x-hidden text-white">
       <div className="announcement-bar">
         <div className="announcement-track">
-          <span>AI-native software delivery for startups and SMEs</span>
+          <span>AI-native software delivery for startups and MSMEs</span>
           <span>Production-grade software shipped faster</span>
           <span>Websites, web apps, mobile products, and AI integrations</span>
           <span>Book a strategy call to map your build sprint</span>
@@ -161,7 +161,7 @@ export default function Home() {
               </h1>
 
               <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-                AXXION helps startups and SMEs ship real software faster by combining AI-native execution with experienced engineering. Strategy no longer waits for delivery. It becomes delivery.
+                AXXION helps startups and MSMEs ship real software faster by combining AI-native execution with experienced engineering. Strategy no longer waits for delivery. It becomes delivery.
               </p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">

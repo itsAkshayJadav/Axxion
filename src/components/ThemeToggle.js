@@ -1,19 +1,21 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 
 const themeOptions = [
-  { label: "Dark", value: "dark" },
-  { label: "Light", value: "light" },
+  { label: "Dark", value: "dark", icon: Moon },
+  { label: "Light", value: "light", icon: Sun },
 ];
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ className = "" }) {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="theme-toggle" role="group" aria-label="Choose a color theme">
+    <div className={`theme-toggle ${className}`.trim()} role="group" aria-label="Choose a color theme">
       {themeOptions.map((option) => {
         const isActive = theme === option.value;
+        const Icon = option.icon;
 
         return (
           <button
@@ -21,9 +23,11 @@ export default function ThemeToggle() {
             type="button"
             onClick={() => setTheme(option.value)}
             className={`theme-toggle-button ${isActive ? "theme-toggle-button-active" : ""}`.trim()}
+            aria-label={`Use ${option.label.toLowerCase()} theme`}
             aria-pressed={isActive}
+            title={`${option.label} theme`}
           >
-            {option.label}
+            <Icon aria-hidden="true" className="theme-toggle-icon" />
           </button>
         );
       })}

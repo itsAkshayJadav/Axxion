@@ -4,6 +4,7 @@ import { createContext, useContext, useMemo, useSyncExternalStore } from "react"
 
 const STORAGE_KEY = "axxion-theme";
 const THEME_EVENT = "axxion-theme-change";
+const SYSTEM_THEME_QUERY = "(prefers-color-scheme: light)";
 
 const ThemeContext = createContext({
   theme: "dark",
@@ -15,12 +16,42 @@ function normalizeTheme(value) {
   return value === "light" ? "light" : "dark";
 }
 
+function isTheme(value) {
+  return value === "dark" || value === "light";
+}
+
+function getStoredTheme() {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  try {
+    const savedTheme = window.localStorage.getItem(STORAGE_KEY);
+    return isTheme(savedTheme) ? savedTheme : null;
+  } catch {
+    return null;
+  }
+}
+
+function getSystemTheme() {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return "dark";
+  }
+
+  return window.matchMedia(SYSTEM_THEME_QUERY).matches ? "light" : "dark";
+}
+
+function getPreferredTheme() {
+  return getStoredTheme() ?? getSystemTheme();
+}
+
 function getThemeSnapshot() {
   if (typeof document === "undefined") {
     return "dark";
   }
 
-  return normalizeTheme(document.documentElement.dataset.theme);
+  const currentTheme = document.documentElement.dataset.theme;
+  return isTheme(currentTheme) ? currentTheme : getPreferredTheme();
 }
 
 function getServerThemeSnapshot() {
@@ -33,22 +64,47 @@ function subscribe(callback) {
   }
 
   const handleStorage = (event) => {
-    if (event.key !== STORAGE_KEY) {
+    if (event.key !== STORAGE_KEY && event.key !== null) {
       return;
     }
 
-    document.documentElement.dataset.theme = normalizeTheme(event.newValue);
+    document.documentElement.dataset.theme = getPreferredTheme();
+    callback();
+  };
+
+  const handleSystemThemeChange = () => {
+    if (getStoredTheme()) {
+      return;
+    }
+
+    document.documentElement.dataset.theme = getSystemTheme();
     callback();
   };
 
   const handleThemeChange = () => callback();
+  const systemTheme = window.matchMedia?.(SYSTEM_THEME_QUERY);
 
   window.addEventListener("storage", handleStorage);
   window.addEventListener(THEME_EVENT, handleThemeChange);
 
+  if (systemTheme?.addEventListener) {
+    systemTheme.addEventListener("change", handleSystemThemeChange);
+  } else {
+    systemTheme?.addListener?.(handleSystemThemeChange);
+  }
+
+  const syncTheme = window.setTimeout(callback, 0);
+
   return () => {
+    window.clearTimeout(syncTheme);
     window.removeEventListener("storage", handleStorage);
     window.removeEventListener(THEME_EVENT, handleThemeChange);
+
+    if (systemTheme?.removeEventListener) {
+      systemTheme.removeEventListener("change", handleSystemThemeChange);
+    } else {
+      systemTheme?.removeListener?.(handleSystemThemeChange);
+    }
   };
 }
 

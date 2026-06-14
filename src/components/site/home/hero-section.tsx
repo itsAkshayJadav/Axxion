@@ -23,14 +23,14 @@ export function HeroSection() {
               We build websites, web apps, and AI-powered software with{" "}
               <span className="relative inline-flex">
                 <span className="absolute inset-x-0 bottom-1 top-2 rounded-full bg-cyan-400/16 blur-2xl" />
-                <span className="relative bg-[linear-gradient(135deg,#ffffff_0%,#d7f7ff_38%,#67e8f9_72%,#38bdf8_100%)] bg-clip-text text-transparent">
+                <span className="theme-gradient-text relative bg-[linear-gradient(135deg,#ffffff_0%,#d7f7ff_38%,#67e8f9_72%,#38bdf8_100%)] bg-clip-text text-transparent">
                   startup speed and production precision.
                 </span>
               </span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-              Axxion helps startups and SMEs ship faster and reduce cost by combining AI-native execution with experienced engineers who own architecture, QA, and release quality.
+              Axxion helps startups and MSMEs ship faster and reduce cost by combining AI-native execution with experienced engineers who own architecture, QA, and release quality.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

@@ -13,7 +13,7 @@ import { WhyUsSection } from "./why-us-section";
 
 export function HomePage() {
   return (
-    <div className="relative overflow-x-clip text-white">
+    <div className="theme-surface relative overflow-x-clip text-white">
       <AnnouncementBar />
       <SiteHeader />
       <main>

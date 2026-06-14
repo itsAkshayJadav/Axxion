@@ -27,7 +27,7 @@ export function ContactSection() {
                   Build faster. Launch smarter. Spend less on drag.
                 </h2>
                 <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
-                  AI-native engineers for startups and SMEs who need real software shipped without agency bloat. Faster delivery, leaner cost structure, and human-reviewed execution from first sprint to release.
+                  AI-native engineers for startups and MSMEs who need real software shipped without agency bloat. Faster delivery, leaner cost structure, and human-reviewed execution from first sprint to release.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">

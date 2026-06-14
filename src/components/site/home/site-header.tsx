@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 import { COMPANY_NAME, navLinks } from "@/content/home";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/site/logo";
@@ -29,9 +30,12 @@ export function SiteHeader() {
               ))}
             </nav>
 
-            <a className={cn(buttonVariants({ variant: "primary", size: "default" }), "ml-auto hidden lg:inline-flex")} href="#contact">
-              Book a strategy call
-            </a>
+            <div className="hidden items-center gap-3 lg:flex">
+              <ThemeToggle />
+              <a className={buttonVariants({ variant: "primary", size: "default" })} href="#contact">
+                Book a strategy call
+              </a>
+            </div>
 
             <button
               aria-controls="mobile-menu"
@@ -67,6 +71,9 @@ export function SiteHeader() {
                         {link.label}
                       </a>
                     ))}
+                    <div className="px-1 py-2">
+                      <ThemeToggle className="w-full justify-center" />
+                    </div>
                     <a
                       className={cn(buttonVariants({ variant: "primary", size: "default" }), "mt-2 w-full")}
                       href="#contact"

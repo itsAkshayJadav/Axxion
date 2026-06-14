@@ -16,7 +16,7 @@ const themeInitializer = `
 export const metadata = {
   title: "AXXION | AI + Human Software Studio",
   description:
-    "AXXION builds websites, web apps, and mobile products for startups and SMEs using AI-accelerated delivery with senior engineering oversight.",
+    "AXXION builds websites, web apps, and mobile products for startups and MSMEs using AI-accelerated delivery with senior engineering oversight.",
 };
 
 export default function RootLayout({ children }) {

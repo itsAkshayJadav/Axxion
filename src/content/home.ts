@@ -60,7 +60,7 @@ export const announcementItems = [
   "AI-native software delivery",
   "Production-grade products shipped faster",
   "Web apps, platforms, AI integrations",
-  "Built for startups and SMEs",
+  "Built for startups and MSMEs",
 ];
 
 export const navLinks: NavLink[] = [
@@ -237,7 +237,7 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Next.js", "Node", "Stripe", "Postgres"],
   },
   {
-    title: "SME operations platform",
+    title: "MSME operations platform",
     category: "Multi-site service business",
     projectType: "Internal system",
     outcome:
@@ -247,7 +247,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     title: "AI workflow automation",
-    category: "Growth-focused SME",
+    category: "Growth-focused MSME",
     projectType: "AI integration",
     outcome:
       "Connected CRM, email, document intake, and AI-assisted review to cut turnaround time and remove repetitive operational work.",
@@ -284,7 +284,7 @@ export const pricingTiers: PricingTier[] = [
   },
   {
     name: "Ongoing Product Partner",
-    idealFor: "SMEs and startups with a longer roadmap",
+    idealFor: "MSMEs and startups with a longer roadmap",
     summary: "A lean product and engineering partner for continuous releases without agency overhead.",
     timeline: "Monthly cadence",
     support: "Continuous delivery, prioritization, and technical ownership",
@@ -309,7 +309,7 @@ export const testimonials: Testimonial[] = [
       "What stood out was the balance of speed and engineering discipline. The team used AI where it helped, but every important decision still had strong technical judgment behind it.",
     name: "James Patel",
     role: "COO",
-    company: "Operations-heavy SME",
+    company: "Operations-heavy MSME",
   },
   {
     quote:
@@ -320,4 +320,4 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const trustedLabels = ["Founder-led teams", "B2B products", "SME operations", "AI-enabled delivery"];
+export const trustedLabels = ["Founder-led teams", "B2B products", "MSME operations", "AI-enabled delivery"];

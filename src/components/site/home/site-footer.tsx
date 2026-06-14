@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div className="max-w-sm space-y-4">
           <Logo />
           <p className="text-sm leading-7 text-slate-400">
-            {COMPANY_NAME} builds websites, apps, platforms, and AI automations for startups and SMEs that want faster delivery with stronger engineering discipline.
+            {COMPANY_NAME} builds websites, apps, platforms, and AI automations for startups and MSMEs that want faster delivery with stronger engineering discipline.
           </p>
         </div>
 
