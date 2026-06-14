@@ -1,5 +1,5 @@
 ﻿import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
-import { COMPANY_EMAIL } from "@/content/home";
+import { COMPANY_EMAIL, STRATEGY_CALL_MAILTO_HREF } from "@/content/home";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
@@ -31,7 +31,7 @@ export function ContactSection() {
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a className={cn(buttonVariants({ size: "lg" }), "group")} href={`mailto:${COMPANY_EMAIL}?subject=Strategy%20Call`}>
+                  <a className={cn(buttonVariants({ size: "lg" }), "group")} href={STRATEGY_CALL_MAILTO_HREF}>
                     Book a strategy call
                     <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </a>
