@@ -1,5 +1,5 @@
 import { Github, Linkedin } from "lucide-react";
-import { COMPANY_EMAIL, COMPANY_NAME, navLinks } from "@/content/home";
+import { COMPANY_NAME, CONTACT_FORM_HREF, navLinks } from "@/content/home";
 import { Logo } from "@/components/site/logo";
 import { Container } from "@/components/ui/container";
 
@@ -29,8 +29,8 @@ export function SiteFooter() {
           <div>
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-cyan-100/80">Contact</p>
             <div className="mt-4 grid gap-3 text-sm text-slate-300">
-              <a className="transition hover:text-white" href={`mailto:${COMPANY_EMAIL}`}>
-                {COMPANY_EMAIL}
+              <a className="transition hover:text-white" href={CONTACT_FORM_HREF}>
+                Tell us what you need
               </a>
               <span>Perth, Australia</span>
             </div>

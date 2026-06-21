@@ -5,7 +5,6 @@ import { appendInquiry } from "@/lib/inquiryStore";
 export const runtime = "nodejs";
 
 const REQUIRED_SMTP_ENV_NAMES = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS"];
-const EMAIL_NOT_CONFIGURED_CODE = "EMAIL_NOT_CONFIGURED";
 
 function getEnv(name) {
   return process.env[name]?.trim();
@@ -27,7 +26,6 @@ function getEmailConfig() {
     const error = new Error(
       `Email delivery is not configured. Missing environment variables: ${missingEnvNames.join(", ")}.`
     );
-    error.code = EMAIL_NOT_CONFIGURED_CODE;
     error.statusCode = 500;
     throw error;
   }
@@ -36,7 +34,6 @@ function getEmailConfig() {
 
   if (!Number.isInteger(port) || port <= 0) {
     const error = new Error("Email delivery is not configured. SMTP_PORT must be a valid port number.");
-    error.code = EMAIL_NOT_CONFIGURED_CODE;
     error.statusCode = 500;
     throw error;
   }
@@ -47,7 +44,7 @@ function getEmailConfig() {
     user: getEnv("SMTP_USER"),
     pass: getEnv("SMTP_PASS"),
     from: getEnv("INQUIRY_FROM_EMAIL") || getEnv("SMTP_USER"),
-    to: getEnv("INQUIRY_TO_EMAIL") || COMPANY_EMAIL,
+    to: COMPANY_EMAIL,
   };
 }
 
@@ -176,7 +173,6 @@ export async function POST(req) {
     return Response.json(
       {
         success: false,
-        code: error.code,
         error: error.message || "Unable to save your inquiry right now.",
       },
       { status: error.statusCode || 500 }

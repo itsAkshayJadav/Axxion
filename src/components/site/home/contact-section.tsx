@@ -1,5 +1,5 @@
-﻿import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
-import { COMPANY_EMAIL, STRATEGY_CALL_MAILTO_HREF } from "@/content/home";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CONTACT_FORM_HREF } from "@/content/home";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
@@ -31,7 +31,7 @@ export function ContactSection() {
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a className={cn(buttonVariants({ size: "lg" }), "group")} href={STRATEGY_CALL_MAILTO_HREF}>
+                  <a className={cn(buttonVariants({ size: "lg" }), "group")} href={CONTACT_FORM_HREF}>
                     Book a strategy call
                     <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </a>
@@ -48,11 +48,6 @@ export function ContactSection() {
                     </Reveal>
                   ))}
                 </div>
-
-                <a className="mt-10 inline-flex items-center gap-3 text-sm text-slate-300 transition hover:text-white" href={`mailto:${COMPANY_EMAIL}`}>
-                  <Mail className="h-4 w-4 text-cyan-300" />
-                  {COMPANY_EMAIL}
-                </a>
               </div>
             </Card>
           </Reveal>

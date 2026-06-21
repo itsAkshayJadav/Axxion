@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Axxion favicon recommended</title>
+  <defs>
+    <linearGradient id="surface" x1="9" y1="6" x2="55" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1628"/>
+      <stop offset="0.58" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#040914"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="matrix(22 23 -23 22 28 17)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67e8f9" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mark" x1="18" y1="13" x2="47" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8fbff"/>
+      <stop offset="0.54" stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="scan" x1="21" y1="0" x2="43" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7dd3fc" stop-opacity="0.18"/>
+      <stop offset="0.5" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0.18"/>
+    </linearGradient>
+    <filter id="glow" x="-24%" y="-24%" width="148%" height="148%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.22 0 0 0 0 0.74 0 0 0 0 0.97 0 0 0 0.35 0" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#040914"/>
+  <rect x="5.5" y="5.5" width="53" height="53" rx="13.5" fill="url(#surface)" stroke="#173044"/>
+  <rect x="5.5" y="5.5" width="53" height="53" rx="13.5" fill="url(#halo)"/>
+  <g filter="url(#glow)">
+    <path d="M15.5 50 29.3 15.9c1-2.5 4.4-2.5 5.4 0L48.5 50" fill="none" stroke="url(#mark)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22.8 38.8H41.2" stroke="url(#scan)" stroke-width="4.6" stroke-linecap="round"/>
+    <path d="M20.5 52.5H43.5" stroke="#38bdf8" stroke-width="2.4" stroke-linecap="round" opacity="0.48"/>
+  </g>
+</svg>

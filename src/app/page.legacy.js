@@ -99,7 +99,7 @@ const stack = [
   "Next.js",
   "React",
   "Node.js",
-  "MongoDB",
+  "Supabase",
   "Cloud",
   "APIs",
   "Automation",
