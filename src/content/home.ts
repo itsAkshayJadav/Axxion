@@ -1,20 +1,6 @@
 export const COMPANY_NAME = "Axxion";
-export const COMPANY_EMAIL = "jdvaks5758@gmail.com";
-export const STRATEGY_CALL_MAILTO_HREF = `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(
-  "Strategy call request"
-)}&body=${encodeURIComponent(
-  [
-    "Hi Axxion,",
-    "",
-    "I'd like to book a strategy call.",
-    "",
-    "Name:",
-    "Company:",
-    "Contact number:",
-    "Preferred time:",
-    "Project/request:",
-  ].join("\n")
-)}`;
+export const COMPANY_EMAIL = "enquiry@axxionstudio.com";
+export const CONTACT_FORM_HREF = "#contact-form";
 
 export type NavLink = {
   label: string;

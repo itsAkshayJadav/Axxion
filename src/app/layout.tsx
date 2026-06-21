@@ -7,6 +7,7 @@ import "@fontsource/space-grotesk/500.css";
 import "@fontsource/space-grotesk/700.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { BackgroundEffects } from "@/components/site/home/background-effects";
+import { absoluteUrl, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
 const themeInitializer = `
@@ -24,9 +25,61 @@ const themeInitializer = `
 `;
 
 export const metadata: Metadata = {
-  title: "Axxion | AI-Native Engineering for Startups and MSMEs",
-  description:
-    "Axxion helps startups and MSMEs launch websites, products, internal tools, and AI automations faster with AI-native engineers and human-reviewed quality.",
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    url: "/",
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} AI-native software delivery`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [absoluteUrl("/opengraph-image")],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-options/axxion-favicon-recommended.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -35,7 +88,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitializer }} />
       </head>
-      <body className="relative isolate overflow-x-clip">
+      <body className="relative isolate overflow-x-clip" suppressHydrationWarning>
         <ThemeProvider>
           <BackgroundEffects />
           <div className="relative z-10">{children}</div>

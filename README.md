@@ -1,45 +1,69 @@
-This is a [Next.js](https://nextjs.org) project with a contact form that can store submitted inquiries in a Microsoft Excel table on OneDrive and can also email new submissions to your team.
+This is a [Next.js](https://nextjs.org) project with a contact form that forwards submissions into the shared Supabase `submit-quote` Edge Function used by the YesGroutAndSillicone site.
 
 ## Setup
 
 1. Copy `.env.example` to `.env.local`.
-2. Set `ADMIN_PANEL_KEY` to protect the admin inquiries page.
-3. Optionally set your SMTP server details if you also want email notifications for new submissions.
-4. If you want live submissions to go to OneDrive, create an Excel workbook in OneDrive and add a table named `Inquiries` with these columns in this exact order:
-   `id`, `fullName`, `companyName`, `email`, `countryCode`, `contactNumber`, `projectDetails`, `createdAt`
-5. Register an app in Microsoft Entra ID, grant Microsoft Graph application permission `Files.ReadWrite.All` and admin consent, then provide the Graph settings below.
+2. Set the four Supabase variables shown below.
+3. Make sure the shared Supabase Edge Function allowlist includes the Axxion site name.
+4. Insert an Axxion client row in the shared Supabase database if it does not already exist.
 
 Example configuration:
 
 ```bash
-ADMIN_PANEL_KEY=choose-a-secure-admin-key
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-SMTP_USER=your-smtp-username
-SMTP_PASS=your-smtp-password
-INQUIRY_TO_EMAIL=hello@example.com
-INQUIRY_FROM_EMAIL=hello@example.com
-MICROSOFT_GRAPH_TENANT_ID=your-tenant-id
-MICROSOFT_GRAPH_CLIENT_ID=your-app-client-id
-MICROSOFT_GRAPH_CLIENT_SECRET=your-app-client-secret
-MICROSOFT_GRAPH_DRIVE_ID=your-drive-id
-MICROSOFT_GRAPH_TABLE_NAME=Inquiries
-MICROSOFT_GRAPH_WORKBOOK_ITEM_ID=
-MICROSOFT_GRAPH_WORKBOOK_PATH=/Axxion/Inquiries.xlsx
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SITE_NAME=axxionstudio
+VITE_SUPABASE_SUBMIT_QUOTE_FUNCTION=submit-quote
 ```
 
-Storage behavior:
+Database setup:
 
-- If the Microsoft Graph variables are configured, `src/app/api/contact/route.js` writes each inquiry into the configured Excel table on OneDrive and the admin panel reads from that same workbook.
-- If the Microsoft Graph variables are not configured, the app falls back to `data/inquiries.csv` for local development.
-- SMTP is optional and independent from storage.
+```sql
+insert into public.clients (site_name, display_name, quote_from_email, quote_to_email)
+values (
+   'axxionstudio',
+   'Axxion',
+   'Website <hello@your-domain.com>',
+   'hello@your-domain.com'
+)
+on conflict (site_name)
+do update set
+   display_name = excluded.display_name,
+   quote_from_email = excluded.quote_from_email,
+   quote_to_email = excluded.quote_to_email,
+   is_active = true;
 
-## OneDrive notes
+insert into public.client_email_templates (
+   client_id,
+   template_key,
+   subject_template,
+   text_template,
+   html_template,
+   is_active
+)
+select
+   c.id,
+   'quote_request',
+   '[{{siteName}}] New project brief - {{name}}',
+   E'Site: {{siteName}}\nFull name: {{name}}\nCompany name: {{suburb}}\nEmail: {{email}}\nPhone: {{phone}}\n\nProject details:\n{{message}}',
+   '<h2>New project brief</h2><p><strong>Site:</strong> {{siteName}}</p><p><strong>Full name:</strong> {{name}}</p><p><strong>Company name:</strong> {{suburb}}</p><p><strong>Email:</strong> {{email}}</p><p><strong>Phone:</strong> {{phone}}</p><p><strong>Project details:</strong></p><pre style="white-space:pre-wrap;font-family:inherit;">{{message}}</pre>',
+   true
+from public.clients c
+where c.site_name = 'axxionstudio'
+on conflict (client_id, template_key)
+do update set
+   subject_template = excluded.subject_template,
+   text_template = excluded.text_template,
+   html_template = excluded.html_template,
+   is_active = true;
+```
 
-- This integration is intended for Microsoft 365 / OneDrive for Business via Microsoft Graph, not a personal OneDrive consumer account.
-- You can identify the workbook either by `MICROSOFT_GRAPH_WORKBOOK_ITEM_ID` or by `MICROSOFT_GRAPH_WORKBOOK_PATH`.
-- `MICROSOFT_GRAPH_WORKBOOK_PATH` is relative to the root of the drive whose ID you provide.
-- The admin page and the public form now use the same inquiry store, so the inbox shows the same rows that are written to OneDrive.
+Runtime behavior:
+
+- `src/lib/inquiryStore.js` now maps Axxion inquiries onto the shared `quote_requests` shape used by the Supabase migrations.
+- Address-related fields from that schema are left empty for Axxion submissions.
+- `src/app/api/admin/inquiries/route.js` cannot read `quote_requests` with the current four-variable setup because the shared table is service-role only in the Supabase migrations.
+- If the shared Edge Function uses `SITE_NAME_ALLOWLIST`, add the same value you set in `VITE_SITE_NAME`.
 
 ## Getting started
 
