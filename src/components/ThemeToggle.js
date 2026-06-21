@@ -1,5 +1,6 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 
@@ -10,6 +11,15 @@ const themeOptions = [
 
 export default function ThemeToggle({ className = "" }) {
   const { theme, setTheme } = useTheme();
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className={`theme-toggle ${className}`.trim()} role="group" aria-label="Choose a color theme">

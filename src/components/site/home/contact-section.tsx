@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { ContactForm } from "./contact-form";
+import { ContactFormClient } from "./contact-form-client";
 import { cn } from "@/lib/utils";
 
 const highlights = [
@@ -61,7 +61,7 @@ export function ContactSection() {
                   Share the product, platform, or automation you need. We will respond with the clearest route to a faster, production-ready delivery.
                 </p>
               </div>
-              <ContactForm />
+              <ContactFormClient />
             </Card>
           </Reveal>
         </div>

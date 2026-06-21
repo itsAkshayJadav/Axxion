@@ -1,0 +1,25 @@
+New Quote Request
+
+Client: {{clientDisplayName}}
+Site: {{siteName}}
+Template key: {{templateKey}}
+
+Contact
+Name: {{name}}
+Email: {{email}}
+Phone: {{phone}}
+
+Job Snapshot
+Service: {{service}}
+Suburb: {{suburb}}
+Preferred contact: {{contactMethod}}
+
+Photos
+Photo count: {{photoCount}}
+Photo names: {{photoName}}
+
+Customer Message
+{{message}}
+
+This email was generated from the shared quote pipeline for {{clientDisplayName}}.
+If photos were uploaded, they are attached and their metadata is stored on the quote record in Supabase.

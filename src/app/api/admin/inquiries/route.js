@@ -41,7 +41,8 @@ export async function GET(req) {
         success: false,
         error: error.message || "Unable to load inquiries right now.",
       },
-      { status: error.statusCode || 500 }
+      { status: 500 }
     );
   }
 }
+
