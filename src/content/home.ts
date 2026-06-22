@@ -38,6 +38,8 @@ export type CaseStudy = {
   outcome: string;
   timeline: string;
   stack: string[];
+  url?: string;
+  linkLabel?: string;
 };
 
 export type PricingTier = {
@@ -55,6 +57,7 @@ export type Testimonial = {
   name: string;
   role: string;
   company: string;
+  website?: string;
 };
 
 export const announcementItems = [
@@ -229,13 +232,15 @@ export const comparisonRows: ComparisonRow[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: "Startup MVP",
-    category: "Seed-stage SaaS",
-    projectType: "Product launch",
+    title: "Yes Grout & Silicone",
+    category: "Perth service business",
+    projectType: "Live client launch",
     outcome:
-      "Built an investor-ready MVP with onboarding, billing, and analytics so the founding team could demo, test demand, and start closing pilots.",
-    timeline: "6 weeks",
-    stack: ["Next.js", "Node", "Stripe", "Postgres"],
+      "Designed, built, and deployed a professional service-business website with a clear path for customers to explore services and request a quote.",
+    timeline: "Delivered within 1 week",
+    stack: ["Business website", "Responsive UX", "Lead generation", "Launch"],
+    url: "https://www.yesgroutandsilicone.com.au/",
+    linkLabel: "Visit the live website",
   },
   {
     title: "MSME operations platform",
@@ -300,24 +305,11 @@ export const pricingTiers: PricingTier[] = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Axxion moved faster than any agency we had spoken to, but the quality never felt rushed. We got a real product, not a prototype dressed up for a demo.",
-    name: "Maya Chen",
-    role: "Founder",
-    company: "B2B SaaS startup",
-  },
-  {
-    quote:
-      "What stood out was the balance of speed and engineering discipline. The team used AI where it helped, but every important decision still had strong technical judgment behind it.",
-    name: "James Patel",
-    role: "COO",
-    company: "Operations-heavy MSME",
-  },
-  {
-    quote:
-      "We needed internal software and automation without the usual overhead. Axxion gave us direct communication, fast iteration, and a launch we could trust.",
-    name: "Elena Rossi",
-    role: "Director",
-    company: "Service business group",
+      "Axxion Studio made the whole process straightforward and delivered our new website within a week. They understood what our business needed, communicated clearly, and produced a professional website that makes it easier for customers to learn about our services and get in touch. I’m very happy with the result and would recommend Axxion Studio to other business owners.",
+    name: "Rajvinder Singh",
+    role: "Owner",
+    company: "Yes Grout & Silicone",
+    website: "https://www.yesgroutandsilicone.com.au/",
   },
 ];
 
