@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/content/home";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -10,9 +11,9 @@ export function CaseStudiesSection() {
     <section className="section-anchor py-20 sm:py-24 lg:py-28" id="case-studies">
       <Container>
         <SectionHeading
-          description="Representative examples of the kinds of products and systems we help teams bring to market. Structured like real delivery, even when the details are placeholder-safe."
+          description="A live client launch alongside representative examples of the products and systems we help teams bring to market."
           eyebrow="Case studies"
-          heading="Delivery examples shaped around business outcomes, not just feature lists."
+          heading="Work shaped around business outcomes, not just feature lists."
         />
 
         <div className="mt-10 grid gap-5 xl:grid-cols-3">
@@ -42,6 +43,18 @@ export function CaseStudiesSection() {
                       </Badge>
                     ))}
                   </div>
+
+                  {study.url ? (
+                    <a
+                      className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition-colors hover:text-white"
+                      href={study.url}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      {study.linkLabel ?? "View project"}
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  ) : null}
                 </Card>
               </div>
             </Reveal>

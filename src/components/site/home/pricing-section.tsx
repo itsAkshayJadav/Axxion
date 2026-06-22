@@ -28,7 +28,7 @@ export function PricingSection() {
                     <p className="mt-2 text-sm leading-7 text-slate-300">{tier.idealFor}</p>
                   </div>
                   {tier.featured ? (
-                    <span className="rounded-full border border-cyan-300/16 bg-cyan-300/10 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-cyan-100">
+                    <span className="inline-flex items-center justify-center rounded-full border border-cyan-300/16 bg-cyan-300/10 px-3 py-1 text-center text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-cyan-100">
                       Most requested
                     </span>
                   ) : null}

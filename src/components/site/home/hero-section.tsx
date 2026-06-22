@@ -45,8 +45,8 @@ export function HeroSection() {
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {heroTrustPoints.map((point, index) => (
-                <Reveal className="rounded-full border border-white/8 bg-white/[0.03] px-4 py-3" delay={0.08 + index * 0.04} key={point}>
-                  <div className="flex items-center gap-2 text-sm text-slate-200">
+                <Reveal className="flex min-h-12 items-center justify-center rounded-full border border-white/8 bg-white/[0.03] px-4 py-3 text-center" delay={0.08 + index * 0.04} key={point}>
+                  <div className="flex items-center justify-center gap-2 text-sm text-slate-200">
                     <CheckCircle2 className="h-4 w-4 text-cyan-300" />
                     <span>{point}</span>
                   </div>
@@ -64,7 +64,7 @@ export function HeroSection() {
                     <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-cyan-100/80">Operating model</p>
                     <h2 className="mt-2 display-font text-2xl font-semibold text-white sm:text-[2rem]">Sprint engine dashboard</h2>
                   </div>
-                  <div className="rounded-full border border-cyan-300/15 bg-cyan-300/10 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-cyan-100">
+                  <div className="inline-flex items-center justify-center rounded-full border border-cyan-300/15 bg-cyan-300/10 px-3 py-1 text-center text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-cyan-100">
                     Live workflow
                   </div>
                 </div>
