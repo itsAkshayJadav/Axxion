@@ -4,10 +4,9 @@ import { cn } from "@/lib/utils";
 type LogoProps = {
   compact?: boolean;
   className?: string;
-  priority?: boolean;
 };
 
-export function Logo({ compact = false, className, priority: _priority = false }: LogoProps) {
+export function Logo({ compact = false, className }: LogoProps) {
   return (
     <span
       aria-label={`${COMPANY_NAME} wordmark`}

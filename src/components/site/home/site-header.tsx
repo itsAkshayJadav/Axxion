@@ -16,10 +16,15 @@ export function SiteHeader() {
   return (
     <header className="sticky top-11 z-40">
       <Container className="pt-4">
-        <div className="glass-panel rounded-full border-white/10 px-4 py-3 sm:px-5">
+        <div
+          className={cn(
+            "glass-panel border-white/10 px-4 py-3 transition-[border-radius] duration-200 sm:px-5 lg:rounded-full",
+            open ? "rounded-[28px]" : "rounded-full",
+          )}
+        >
           <div className="flex items-center gap-4">
             <a aria-label={`${COMPANY_NAME} home`} className="shrink-0" href="#top">
-              <Logo priority />
+              <Logo />
             </a>
 
             <nav className="ml-auto hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
