@@ -1,5 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
-import { pricingTiers } from "@/content/home";
+import { engagementModels } from "@/content/home";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
@@ -19,7 +19,7 @@ export function PricingSection() {
         />
 
         <div className="mt-10 grid gap-5 xl:grid-cols-3">
-          {pricingTiers.map((tier, index) => (
+          {engagementModels.map((tier, index) => (
             <Reveal delay={index * 0.06} key={tier.name}>
               <Card className={cn("h-full p-6 sm:p-7", tier.featured && "border-cyan-300/18 shadow-[0_28px_80px_rgba(8,145,178,0.18)]")} variant={tier.featured ? "feature" : "default"}>
                 <div className="flex items-start justify-between gap-4">

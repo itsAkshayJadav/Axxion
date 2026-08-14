@@ -1,5 +1,5 @@
-import { Github, Linkedin } from "lucide-react";
-import { COMPANY_NAME, CONTACT_FORM_HREF, navLinks } from "@/content/home";
+import { Linkedin } from "lucide-react";
+import { COMPANY_NAME, CONTACT_FORM_HREF, LINKEDIN_COMPANY_URL, navLinks } from "@/content/home";
 import { Logo } from "@/components/site/logo";
 import { Container } from "@/components/ui/container";
 
@@ -39,11 +39,14 @@ export function SiteFooter() {
           <div>
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.3em] text-cyan-100/80">Social</p>
             <div className="mt-4 flex items-center gap-3">
-              <a aria-label="LinkedIn placeholder" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-cyan-300/30 hover:text-white" href="#">
+              <a
+                aria-label="LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-cyan-300/30 hover:text-white"
+                href={LINKEDIN_COMPANY_URL}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <Linkedin className="h-4 w-4" />
-              </a>
-              <a aria-label="GitHub placeholder" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-slate-300 transition hover:border-cyan-300/30 hover:text-white" href="#">
-                <Github className="h-4 w-4" />
               </a>
             </div>
           </div>

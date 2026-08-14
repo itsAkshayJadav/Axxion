@@ -1,5 +1,5 @@
 import { HomePage } from "@/components/site/home/home-page";
-import { COMPANY_EMAIL, pricingTiers, services } from "@/content/home";
+import { COMPANY_EMAIL, LINKEDIN_COMPANY_URL, engagementModels, services } from "@/content/home";
 import { absoluteUrl, siteConfig } from "@/lib/seo";
 
 const organizationId = absoluteUrl("/#organization");
@@ -17,6 +17,7 @@ const structuredData = [
     image: absoluteUrl("/opengraph-image"),
     description: siteConfig.description,
     email: COMPANY_EMAIL,
+    sameAs: [LINKEDIN_COMPANY_URL],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Perth",
@@ -69,7 +70,7 @@ const structuredData = [
     mainEntity: {
       "@type": "OfferCatalog",
       name: "Axxion engagement models",
-      itemListElement: pricingTiers.map((tier) => ({
+      itemListElement: engagementModels.map((tier) => ({
         "@type": "Offer",
         name: tier.name,
         description: tier.summary,

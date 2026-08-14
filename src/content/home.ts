@@ -1,6 +1,7 @@
 export const COMPANY_NAME = "Axxion";
 export const COMPANY_EMAIL = "enquiry@axxionstudio.com";
 export const CONTACT_FORM_HREF = "#contact-form";
+export const LINKEDIN_COMPANY_URL = "https://www.linkedin.com/company/axxion-studio/";
 
 export type NavLink = {
   label: string;
@@ -42,7 +43,7 @@ export type CaseStudy = {
   linkLabel?: string;
 };
 
-export type PricingTier = {
+export type EngagementModel = {
   name: string;
   idealFor: string;
   summary: string;
@@ -76,12 +77,7 @@ export const navLinks: NavLink[] = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const heroTrustPoints = [
-  "Faster delivery",
-  "Leaner cost",
-  "Human-reviewed quality",
-  "Built for launch",
-];
+export const heroTrustPoints = ["Faster delivery", "Leaner cost", "Human-reviewed quality", "Built for launch"];
 
 export const workflowSteps = [
   {
@@ -131,8 +127,7 @@ export const whyUsItems: WhyUsItem[] = [
   },
   {
     title: "Built for real business outcomes",
-    description:
-      "We ship software that helps teams sell, operate, automate, and scale, not just polished prototypes.",
+    description: "We ship software that helps teams sell, operate, automate, and scale, not just polished prototypes.",
     icon: "target",
   },
 ];
@@ -214,55 +209,45 @@ export const comparisonRows: ComparisonRow[] = [
     axxion: "Small teams, direct stakeholders, and faster implementation make iteration practical.",
   },
   {
-    label: "Flexibility",
-    traditional: "Rigid scope and formal change cycles make adaptation expensive.",
-    axxion: "We can reframe, refine, and redirect quickly because product and engineering stay close.",
-  },
-  {
     label: "Release confidence",
     traditional: "QA and launch prep often bunch up near the end of the project.",
     axxion: "Testing, release planning, and human review run throughout delivery, not just at the end.",
-  },
-  {
-    label: "Communication",
-    traditional: "Stakeholders often talk to account layers instead of the people building the product.",
-    axxion: "Direct founder and operator alignment keeps decisions sharp and tradeoffs visible.",
   },
 ];
 
 export const caseStudies: CaseStudy[] = [
   {
     title: "Yes Grout & Silicone",
-    category: "Perth service business",
-    projectType: "Live client launch",
+    category: "Perth trade services",
+    projectType: "Client engagement",
     outcome:
-      "Designed, built, and deployed a professional service-business website with a clear path for customers to explore services and request a quote.",
+      "Clarified the customer journey, then designed, built, and launched a professional service-business website with a direct path from service discovery to quote enquiry.",
     timeline: "Delivered within 1 week",
-    stack: ["Business website", "Responsive UX", "Lead generation", "Launch"],
+    stack: ["Customer journey", "Service website", "Lead capture", "Launch"],
     url: "https://www.yesgroutandsilicone.com.au/",
     linkLabel: "Visit the live website",
   },
   {
-    title: "MSME operations platform",
+    title: "Multi-site operations hub",
     category: "Multi-site service business",
-    projectType: "Internal system",
+    projectType: "Representative solution",
     outcome:
-      "Replaced fragmented spreadsheets and manual coordination with a single operations platform that improved visibility and reduced admin load.",
-    timeline: "8 weeks",
-    stack: ["React", "Supabase", "Automation", "Role-based access"],
+      "A typical engagement could consolidate fragmented spreadsheets, job coordination, and reporting into one operational view for managers and field teams.",
+    timeline: "Typical delivery: 6-10 weeks",
+    stack: ["Workflow redesign", "Central operations", "Role access", "Reporting"],
   },
   {
-    title: "AI workflow automation",
+    title: "Enquiry-to-service automation",
     category: "Growth-focused MSME",
-    projectType: "AI integration",
+    projectType: "Representative solution",
     outcome:
-      "Connected CRM, email, document intake, and AI-assisted review to cut turnaround time and remove repetitive operational work.",
-    timeline: "4 weeks",
-    stack: ["OpenAI", "Make", "HubSpot", "Custom APIs"],
+      "A practical automation pathway could connect enquiry intake, qualification, document handling, CRM updates, and follow-up to reduce response time and manual administration.",
+    timeline: "Typical delivery: 3-6 weeks",
+    stack: ["Process mapping", "AI-assisted intake", "CRM integration", "Follow-up"],
   },
 ];
 
-export const pricingTiers: PricingTier[] = [
+export const engagementModels: EngagementModel[] = [
   {
     name: "Sprint Build",
     idealFor: "Teams that need a focused delivery burst",
