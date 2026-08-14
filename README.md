@@ -1,71 +1,30 @@
-This is a [Next.js](https://nextjs.org) project with a contact form that forwards submissions into the shared Supabase `submit-quote` Edge Function used by the YesGroutAndSillicone site.
+# Axxion
+
+Axxion is a [Next.js](https://nextjs.org) marketing site with a contact form, admin shell, SEO metadata, and shared Supabase quote-submission integration.
 
 ## Setup
 
 1. Copy `.env.example` to `.env.local`.
-2. Set the four Supabase variables shown below.
-3. Make sure the shared Supabase Edge Function allowlist includes the Axxion site name.
-4. Insert an Axxion client row in the shared Supabase database if it does not already exist.
-
-Example configuration:
+2. Fill in the Supabase submission variables.
+3. Set `ADMIN_PANEL_KEY` if you want to protect `/admin`.
+4. If the shared Supabase Edge Function uses a site allowlist, add the same value used by `VITE_SITE_NAME`.
 
 ```bash
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key
 VITE_SITE_NAME=axxionstudio
 VITE_SUPABASE_SUBMIT_QUOTE_FUNCTION=submit-quote
+ADMIN_PANEL_KEY=replace-with-a-private-admin-key
+NEXT_PUBLIC_SITE_URL=https://axxionstudio.com
 ```
 
-Database setup:
+## Notes
 
-```sql
-insert into public.clients (site_name, display_name, quote_from_email, quote_to_email)
-values (
-   'axxionstudio',
-   'Axxion',
-   'Website <hello@your-domain.com>',
-   'hello@your-domain.com'
-)
-on conflict (site_name)
-do update set
-   display_name = excluded.display_name,
-   quote_from_email = excluded.quote_from_email,
-   quote_to_email = excluded.quote_to_email,
-   is_active = true;
+- Contact form submissions are sent through the configured Supabase Edge Function.
+- `/admin` checks the `ADMIN_PANEL_KEY` value before loading inquiries.
+- Inquiry reading still needs a server-side Supabase reader before the admin inbox can show submitted records.
 
-insert into public.client_email_templates (
-   client_id,
-   template_key,
-   subject_template,
-   text_template,
-   html_template,
-   is_active
-)
-select
-   c.id,
-   'quote_request',
-   '[{{siteName}}] New project brief - {{name}}',
-   E'Site: {{siteName}}\nFull name: {{name}}\nCompany name: {{suburb}}\nEmail: {{email}}\nPhone: {{phone}}\n\nProject details:\n{{message}}',
-   '<h2>New project brief</h2><p><strong>Site:</strong> {{siteName}}</p><p><strong>Full name:</strong> {{name}}</p><p><strong>Company name:</strong> {{suburb}}</p><p><strong>Email:</strong> {{email}}</p><p><strong>Phone:</strong> {{phone}}</p><p><strong>Project details:</strong></p><pre style="white-space:pre-wrap;font-family:inherit;">{{message}}</pre>',
-   true
-from public.clients c
-where c.site_name = 'axxionstudio'
-on conflict (client_id, template_key)
-do update set
-   subject_template = excluded.subject_template,
-   text_template = excluded.text_template,
-   html_template = excluded.html_template,
-   is_active = true;
-```
-
-Runtime behavior:
-
-- `src/lib/inquiryStore.js` now maps Axxion inquiries onto the shared `quote_requests` shape used by the Supabase migrations.
-- Address-related fields from that schema are left empty for Axxion submissions.
-- `src/app/api/admin/inquiries/route.js` cannot read `quote_requests` with the current four-variable setup because the shared table is service-role only in the Supabase migrations.
-- If the shared Edge Function uses `SITE_NAME_ALLOWLIST`, add the same value you set in `VITE_SITE_NAME`.
-
-## Getting started
+## Development
 
 Run the development server:
 
