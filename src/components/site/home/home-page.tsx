@@ -3,6 +3,7 @@ import { CaseStudiesSection } from "./case-studies-section";
 import { ComparisonSection } from "./comparison-section";
 import { ContactSection } from "./contact-section";
 import { HeroSection } from "./hero-section";
+import { MidCtaBand } from "./mid-cta-band";
 import { PricingSection } from "./pricing-section";
 import { ProcessSection } from "./process-section";
 import { ServicesSection } from "./services-section";
@@ -20,11 +21,12 @@ export function HomePage() {
         <HeroSection />
         <WhyUsSection />
         <ServicesSection />
+        <MidCtaBand />
+        <CaseStudiesSection />
+        <TestimonialsSection />
         <ProcessSection />
         <ComparisonSection />
-        <CaseStudiesSection />
         <PricingSection />
-        <TestimonialsSection />
         <ContactSection />
       </main>
       <SiteFooter />

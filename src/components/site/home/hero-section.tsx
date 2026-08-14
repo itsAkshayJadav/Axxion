@@ -1,5 +1,8 @@
-﻿import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { heroTrustPoints, workflowSteps } from "@/content/home";
+﻿"use client";
+
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import { caseStudies, heroTrustPoints, workflowSteps } from "@/content/home";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -8,6 +11,9 @@ import { Reveal } from "@/components/ui/reveal";
 import { cn } from "@/lib/utils";
 
 export function HeroSection() {
+  const featuredCaseStudy = caseStudies.find((study) => study.url);
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
     <section className="relative overflow-hidden pb-20 pt-10 sm:pb-24 sm:pt-16 lg:pb-28" id="top">
       <Container className="relative">
@@ -43,6 +49,22 @@ export function HeroSection() {
               </a>
             </div>
 
+            {featuredCaseStudy ? (
+              <Reveal className="mt-6" delay={0.05}>
+                <a
+                  className="group inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-white"
+                  href={featuredCaseStudy.url}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <CheckCircle2 className="h-4 w-4 text-cyan-300" />
+                  <span>
+                    Recent build: <span className="font-semibold text-white">{featuredCaseStudy.title}</span>—{featuredCaseStudy.timeline.toLowerCase()}
+                  </span>
+                </a>
+              </Reveal>
+            ) : null}
+
             <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {heroTrustPoints.map((point, index) => (
                 <Reveal className="flex min-h-12 items-center justify-center rounded-full border border-white/8 bg-white/[0.03] px-4 py-3 text-center" delay={0.08 + index * 0.04} key={point}>
@@ -70,21 +92,41 @@ export function HeroSection() {
                 </div>
 
                 <div className="mt-6 space-y-3">
-                  {workflowSteps.map((step, index) => (
-                    <Reveal delay={0.12 + index * 0.06} key={step.step}>
-                      <Card className="group p-4 transition-transform duration-200 hover:-translate-y-1 sm:p-5" variant="muted">
-                        <div className="flex items-start gap-4">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cyan-300/16 bg-cyan-300/10 text-sm font-semibold text-cyan-100">
-                            {step.step}
-                          </div>
-                          <div>
-                            <h3 className="text-base font-semibold text-white sm:text-lg">{step.title}</h3>
-                            <p className="mt-2 text-sm leading-7 text-slate-300">{step.description}</p>
-                          </div>
-                        </div>
-                      </Card>
-                    </Reveal>
-                  ))}
+                  {workflowSteps.map((step, index) => {
+                    const isActive = index === activeStep;
+                    return (
+                      <Reveal delay={0.12 + index * 0.06} key={step.step}>
+                        <button className="block w-full text-left" onClick={() => setActiveStep(index)} type="button">
+                          <Card
+                            className={cn(
+                              "group p-4 transition-all duration-200 hover:-translate-y-1 sm:p-5",
+                              isActive && "border-cyan-300/30 bg-cyan-300/[0.06] shadow-[0_16px_40px_rgba(6,182,212,0.14)]"
+                            )}
+                            variant={isActive ? "default" : "muted"}
+                          >
+                            <div className="flex items-start gap-4">
+                              <div
+                                className={cn(
+                                  "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border text-sm font-semibold transition-colors duration-200",
+                                  isActive
+                                    ? "border-cyan-300/40 bg-cyan-300/20 text-white"
+                                    : "border-cyan-300/16 bg-cyan-300/10 text-cyan-100"
+                                )}
+                              >
+                                {step.step}
+                              </div>
+                              <div>
+                                <h3 className="text-base font-semibold text-white sm:text-lg">{step.title}</h3>
+                                <p className={cn("mt-2 text-sm leading-7 text-slate-300", !isActive && "line-clamp-1 sm:line-clamp-none")}>
+                                  {step.description}
+                                </p>
+                              </div>
+                            </div>
+                          </Card>
+                        </button>
+                      </Reveal>
+                    );
+                  })}
                 </div>
 
                 <Reveal delay={0.28}>
